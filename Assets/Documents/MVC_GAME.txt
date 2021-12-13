@@ -1,0 +1,40 @@
+Cấu trúc GameObject sao cho MVC
+
+Player:
+
+_View:
+	_Sprite
+	_Animation
+	_GetInput				-> _Movements
+	_HealthDisplay
+	_...
+_Controller
+	_Movements				-> _Animation
+	_SetBomb 				-> _BombList
+	_TakeDamage 			-> _HealthCount
+	_SetDamageToDisplay 	-> _HealthDisplay
+	_...
+_Model
+	_HealthCount
+	_BombList(*)
+	_...
+
+(*) BombList có thể có 3 kiểu:
+	- Một loại, số lượng ko giới hạn
+	- Nhiều loại, xoay vòng không giới hạn
+	- Nhiều loại, random thứ tự
+	
+	
+
+Bomb:
+
+_View:
+	_Sprite
+	_Animation
+	_...
+_Controller:
+	_Explose				-> _Animation
+	_...
+_Model:
+	_CountDownTime 			-> _Explose
+	_...
